@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>d3 example</title>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+
+    <!-- Data -->
+    <script type="text/javascript" src="data.js" ></script>
+</head>
+<body>
+
+    <div class="container">
+ 
+        <div id="chart" class="jumbotron">
+
+        <!-- Tab Navigation -->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Quarter Backs</a></li>
+                <li><a href="#tab2" data-toggle="tab">Running Backs</a></li>
+                <li><a href="#tab3" data-toggle="tab">Wide Recievers</a></li>
+            </ul>
+
+        <!-- Tab Content -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    
+                    <h3>Quarter Back Passing Yards From Weeks 13-17</h1>
+                    <svg id="qbviz" width="1000" height="500"></svg>
+                    <script>
+
+                            //selects the svg tag
+                            var qbvis = d3.select("#qbviz");
+                            
+                            drawChart(qbvis, 500);
+                            lineDot(qbvis, DB, 'green', 500);
+                            lineDot(qbvis, PR, 'blue', 500);
+                            lineDot(qbvis, TB, 'red', 500);
+
+                    </script>
+                </div>
+
+                <div class="tab-pane" id="tab2">
+                    <h3>Running Back Rushing Yards From Weeks 13-17</h1>
+                    <svg id="rbviz" width="1000" height="500"></svg>
+                    <script>
+
+                            //selects the svg tag
+                            var rbvis = d3.select("#rbviz");
+
+                            drawChart(rbvis, 150);
+                            lineDot(rbvis, AP, 'green', 150);
+                            lineDot(rbvis, DM, 'blue', 150);
+                            lineDot(rbvis, TG, 'red', 150);
+
+                    </script>
+                    
+                </div>
+                
+                <div class="tab-pane" id="tab3">
+                    <h3>Wide Receiver Receiving Yards From Weeks 13-17</h1>
+                    <svg id="wrviz" width="1000" height="500"></svg>
+                    <script>
+                            //selects the svg tag
+                            var wrvis = d3.select("#wrviz");
+
+                            drawChart(wrvis, 200);
+                            lineDot(wrvis, JJ, 'green', 200);
+                            lineDot(wrvis, AB, 'blue', 200);
+                            lineDot(wrvis, DH, 'red', 200);
+
+                    </script>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
